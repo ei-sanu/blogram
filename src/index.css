@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Minimal design tokens */
+:root {
+  --primary: #4F46E5;
+  --mint: #10B981;
+  --bg: #F8FAFC;
+  --muted: #94A3B8;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: #0f172a;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-container {
+  max-width: 900px;
+  margin: 28px auto;
+  padding: 0 16px;
+}
+
+.header {
+  background: white;
+  box-shadow: 0 2px 6px rgba(2, 6, 23, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.brand {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn.link {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid rgba(79, 70, 229, 0.08);
+}
+
+.card {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+}
+
+.center-page {
+  margin-top: 90px;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* post */
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.avatar-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff, #e6e6ff);
+  border: 1px solid rgba(79, 70, 229, 0.06);
+}
+
+.post-title {
+  font-size: 1.25rem;
+  margin: 12px 0;
+}
+
+.cover {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 8px;
+}
+
+.post-excerpt {
+  color: #334155;
+}
+
+/* editor */
+.input,
+.textarea {
+  width: 100%;
+  border: 1px solid #e6eef7;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* comment */
+.comment {
+  border-top: 1px solid #f1f5f9;
+  padding: 10px 0;
+}
+
+.small {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.like {
+  background: transparent;
+  border-radius: 8px;
+  padding: 6px 8px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.like.liked {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.2);
+}
