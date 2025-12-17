@@ -22,7 +22,7 @@ export function useSyncUser() {
                 .eq("id", user.id)
                 .single();
 
-            const profileImageUrl = user.imageUrl || user.profileImageUrl || null;
+            const profileImageUrl = user.imageUrl || null;
             const displayName = user.fullName || user.firstName || "Anonymous";
             const email = user.primaryEmailAddress?.emailAddress;
 

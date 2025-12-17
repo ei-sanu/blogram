@@ -15,10 +15,17 @@ interface AvatarProps {
 }
 
 const sizeMap = {
-    small: { width: "24px", height: "24px", fontSize: "10px", overlay: "8px" },
-    medium: { width: "32px", height: "32px", fontSize: "12px", overlay: "12px" },
-    large: { width: "50px", height: "50px", fontSize: "18px", overlay: "16px" },
-    xlarge: { width: "150px", height: "150px", fontSize: "48px", overlay: "40px" },
+    small: { width: "24px", height: "24px", fontSize: "10px" },
+    medium: { width: "32px", height: "32px", fontSize: "12px" },
+    large: { width: "50px", height: "50px", fontSize: "18px" },
+    xlarge: { width: "150px", height: "150px", fontSize: "48px" },
+};
+
+const overlaySizeMap = {
+    small: { width: "8px", height: "8px", fontSize: "4px" },
+    medium: { width: "12px", height: "12px", fontSize: "6px" },
+    large: { width: "16px", height: "16px", fontSize: "8px" },
+    xlarge: { width: "40px", height: "40px", fontSize: "20px" },
 };
 
 export default function Avatar({
@@ -106,25 +113,26 @@ export default function Avatar({
         background: src ? "transparent" : "linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d)",
         color: "white",
         fontWeight: "600",
-        overflow: "visible",
+        overflow: "hidden",
         flexShrink: 0,
         position: "relative",
         ...style,
     };
 
+    const overlaySize = overlaySizeMap[size];
     const overlayStyle: React.CSSProperties = {
         position: "absolute",
         bottom: "0",
         right: "0",
-        width: sizeStyle.overlay,
-        height: sizeStyle.overlay,
+        width: overlaySize.width,
+        height: overlaySize.height,
         borderRadius: "50%",
         background: isFollowing ? "#22c55e" : "#0095f6",
         color: "white",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        fontSize: parseInt(sizeStyle.overlay) * 0.5 + "px",
+        fontSize: overlaySize.fontSize,
         cursor: "pointer",
         border: "2px solid white",
         zIndex: 1

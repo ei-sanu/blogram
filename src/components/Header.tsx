@@ -12,7 +12,7 @@ export default function Header() {
             setIsDarkMode(savedTheme === 'dark');
             document.documentElement.setAttribute('data-theme', savedTheme);
         } else {
- 
+            
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             setIsDarkMode(prefersDark);
             document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');

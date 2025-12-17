@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import { useUser } from "@clerk/clerk-react";
+import React, { useState } from "react";
 import { supabase } from "../lib/supabase";
 
 export default function PostEditor() {
@@ -13,8 +13,8 @@ export default function PostEditor() {
         const path = `${user?.id}/${Date.now()}_${file.name}`;
         const { error } = await supabase.storage.from("public/posts").upload(path, file, { upsert: false });
         if (error) throw error;
-        const { publicURL } = supabase.storage.from("public/posts").getPublicUrl(path);
-        return publicURL;
+        const { data } = supabase.storage.from("public/posts").getPublicUrl(path);
+        return data.publicUrl;
     }
 
     async function handleSubmit(e: React.FormEvent) {
